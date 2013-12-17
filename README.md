@@ -50,7 +50,7 @@ Numeric constants:
 
 User defined variables:
 
-    ```c++
+    ```c
     char expression[] = "sin(pi + x)";        
     p.get_vars().add("x", 1.0);
     p.parse(expression);
