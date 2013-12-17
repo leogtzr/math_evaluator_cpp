@@ -47,3 +47,13 @@ Numeric constants:
     pi
     e
     g (gravity)
+
+User defined variables:
+
+    ```cpp
+    char expression[] = "sin(pi + x)";        
+    p.get_vars().add("x", 1.0);
+    p.parse(expression);
+    double result = p.get_numeric_answer();
+    ```
+    
