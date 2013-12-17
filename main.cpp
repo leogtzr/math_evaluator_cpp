@@ -1,25 +1,28 @@
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 #include "parser.h"
 
 using std::endl;
 using std::cout;
 
-int main(void) {
+using std::vector;
 
-    Parser p;
-    p.get_arrays().create_array("a");
-    
-    for(int i = 1; i <= 10; i++) {
-        p.get_arrays().add_element_to_array("a", (double)i);
-    }
+int main(void) {
 
     try {
         char expression[] = "a[sin(pi) + 2]^3";
-        p.parse(expression);
-        double r = p.get_numeric_answer();
-        cout << "Ok ... " << r << endl;
+        Parser p;
+        p.extract_tokens(expression);
+
+        vector<Lexema> tokens = p.get_lexemas_positions();
+
+        for(size_t i = 0; i < tokens.size(); i++) {
+            cout << tokens[i] << endl;
+        }
+
+
     } catch(ParsingException ex) {
         cout << "Error: " << ex.get_msg() << endl;
     }
