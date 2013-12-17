@@ -129,5 +129,17 @@ Output:
     {^, init(14), tipo(DELIMITADOR)}
     {3, init(15), tipo(NUMERO)}
 
-**Function domain checking:**
+**Function domain checking (trigonometric functions):**
 
+    try {
+        Parser p;
+        char expression[] = "1 + asin(1.2)";
+        p.evaluate_expression_with_exception(expression);
+        p.parse(expression);
+    } catch(ParsingException ex) {
+        cout << "Error: " << ex.get_msg() << endl;
+    }
+
+Output:
+
+    Error: out of domain for function '1.200000'

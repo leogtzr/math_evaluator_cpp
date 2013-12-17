@@ -174,7 +174,6 @@ namespace MathFunctions {
 
 		if(evaluate) return 1.0;
 
-		//if(fabs(x) < 0.000000000000001) {
 		if(fabs(x - 0.0) < std::numeric_limits<double>::epsilon()) {
             return 0.0;
         }
@@ -248,17 +247,12 @@ namespace MathFunctions {
 			throw NanOrInfinity("Fuera de dominio.", x);
           }
 		  return log(sqrt(1.0 + (1.0/(x * x))) + (1.0/x));
-			//else
-            //	throw NanOrInfinity("Fuera de dominio para la función 'acsch'", x);
 	}
 
 	inline long double math_asec(double x) throw(NanOrInfinity) {
 
 		if(evaluate) return 1.0;
-		/*if(x >= -1.0 && x >= 1.0) {
-			throw NanOrInfinity("Fura de dominio para la función 'asec'", x);
-        }*/
-		//return math_acos(1.0 / x);
+
 		long double y = acos(1.0 / x);
 		if (!isinf_2(y) && !isNan(y) && !is_infinite(y)) {
 			return y;
@@ -276,7 +270,7 @@ namespace MathFunctions {
 
 		try {
 
-			double b = (cos(2 * x) - 1.0);
+			double b = (cos(2.0 * x) - 1.0);
 
 			if(b == 0.0) {
 				throw NanOrInfinity("Fuera de rango.", x);
@@ -294,7 +288,6 @@ namespace MathFunctions {
 	inline long double math_coth(double x) throw (NanOrInfinity) {
 
 		if(evaluate) return 1.0;
-		//return 1.0 / tanh(x);
 
 		if(fabs(x - 0.0) < std::numeric_limits<double>::epsilon()) {
 			throw NanOrInfinity("Fuera de rango.", x);
@@ -305,14 +298,7 @@ namespace MathFunctions {
 
 	inline long double math_csc(double x) {
 		if(evaluate) return 1.0;
-		 /*if(fabs(sin(x)) < 0.00000000000001) {
-			 throw NanOrInfinity("Fuera de rango.", x);
-		 } else {
-			 return (1.0 / sin(x));
-		 }*/
 
-    	// Código anterior, descomentar si hay problemas.
-		//if(fmod(fabs(x), M_PI) < 0.00000000000001) {
 		if(fabs(fmod(fabs(x), M_PI) - 0.0) < std::numeric_limits<double>::epsilon()) {
 			throw NanOrInfinity("Fuera de rango.", x);
 		} else {
@@ -362,12 +348,8 @@ namespace MathFunctions {
 
 		if(evaluate) return 1.0;
 
-		/*double intpart;
-		double fract_part = modf(x, &intpart);*/
-		// std::cout << "Parte fraccionaria[" << std::setprecision(15) << fract_part << "]Entero[" << intpart << "]" << std::endl;
 		if(x < 0.0) {
 		   throw NanOrInfinity("Fuera de rango.", x);
-		// @antes: 0.00000000000001
 		} else if(x == 0.0 || fabs(x) < MATH_EPSILON) {
 			throw NanOrInfinity("Fuera de rango.", x);
 		} else {
@@ -389,9 +371,7 @@ namespace MathFunctions {
 	}
 
 	inline long double math_sech(double x) {
-
 		if(evaluate) return 1.0;
-
 		return ((2.0 * cosh(x)) / (cosh(2.0 * x) + 1.0));
 	}
 
