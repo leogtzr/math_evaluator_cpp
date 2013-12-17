@@ -11,3 +11,10 @@ Operators:
     ^
     !
     ```
+
+Functions:
+
+    sin
+    cos
+    tan
+    
