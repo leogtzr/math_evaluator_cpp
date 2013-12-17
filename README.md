@@ -15,9 +15,9 @@ A tiny c++ math library for evaluate and recognize expressions.
 
 **Functions:**
 
-    factorial
-    log
-    acot
+- factorial
+- log
+- acot
     acosh
     sign
     acos
