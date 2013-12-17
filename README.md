@@ -116,6 +116,7 @@ A tiny c++ math library for evaluate and recognize expressions.
     }
 
 Output:
+
     {a, init(0), tipo(OPERADOR)}
     {[, init(1), tipo(DELIMITADOR)}
     {sin, init(2), tipo(FUNCION)}
