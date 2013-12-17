@@ -43,7 +43,7 @@ Functions:
     cos
 
 Numeric constants:
+
     pi
     e
     g (gravity)
-    
