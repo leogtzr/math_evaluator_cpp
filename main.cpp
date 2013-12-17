@@ -10,9 +10,12 @@ int main(void) {
 
     Parser p;
 
-    char expression[] = "sin(pi + 0.2)";
+    char expression[] = "sin(pi + x)";
     try {
         p.evaluate_expression_with_exception(expression);
+        
+        p.get_vars().add("x", 1.0);
+
         p.parse(expression);
         double result = p.get_numeric_answer();
         cout << result << endl;
