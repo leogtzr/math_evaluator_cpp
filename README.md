@@ -56,3 +56,14 @@ A tiny c++ math library for evaluate and recognize expressions.
     p.get_vars().add("x", 1.0);
     p.parse(expression);
     double result = p.get_numeric_answer();
+
+**Recognition:**
+
+    try {
+        char expression[] = "pi^2.0 - sin(cos(tan(3.2e0)";
+        p.evaluate_expression_with_exception(expression);
+        cout << "Ok ... " << endl;
+    } catch(ParsingException ex) {
+        cout << "Error: " << ex.get_msg() << endl;
+    }
+
