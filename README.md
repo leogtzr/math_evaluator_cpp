@@ -12,6 +12,7 @@ A tiny c++ math library for evaluate and recognize expressions.
     * / %
     ^
     !
+    Scientific notation
 
 **Functions:**
 
