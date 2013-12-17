@@ -114,3 +114,19 @@ A tiny c++ math library for evaluate and recognize expressions.
     } catch(ParsingException ex) {
         cout << "Error: " << ex.get_msg() << endl;
     }
+
+Output:
+    {a, init(0), tipo(OPERADOR)}
+    {[, init(1), tipo(DELIMITADOR)}
+    {sin, init(2), tipo(FUNCION)}
+    {(, init(5), tipo(DELIMITADOR)}
+    {pi, init(6), tipo(VARIABLE)}
+    {), init(8), tipo(DELIMITADOR)}
+    {+, init(10), tipo(DELIMITADOR)}
+    {2, init(12), tipo(NUMERO)}
+    {], init(13), tipo(DELIMITADOR)}
+    {^, init(14), tipo(DELIMITADOR)}
+    {3, init(15), tipo(NUMERO)}
+
+**Function domain checking:**
+
