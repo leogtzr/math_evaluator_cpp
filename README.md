@@ -68,6 +68,7 @@ Example:
     pi
     e
     g (gravity)
+    random (random number)
 
 **User defined variables:**
 
