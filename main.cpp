@@ -11,9 +11,11 @@ int main(void) {
     Parser p;
 
     try {
-        char expression[] = "pi^2.0 - sin(cos(tan(3.2e0)";
+        char expression[] = "pi^2.0 - sin(cos(tan(3.2e0)))";
         p.evaluate_expression_with_exception(expression);
-        cout << "Ok ... " << endl;
+        p.parse(expression);
+        double r = p.get_numeric_answer();
+        cout << "Ok ... " << r << endl;
     } catch(ParsingException ex) {
         cout << "Error: " << ex.get_msg() << endl;
     }
