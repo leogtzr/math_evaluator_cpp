@@ -13,7 +13,7 @@ A tiny c++ math library for evaluate and recognize expressions.
     ^
     !
 
-Functions:
+**Functions:**
 
     factorial
     log
@@ -44,13 +44,13 @@ Functions:
     sin
     cos
 
-Numeric constants:
+**Numeric constants:**
 
     pi
     e
     g (gravity)
 
-User defined variables:
+**User defined variables:**
 
     char expression[] = "sin(pi + x)";        
     p.get_vars().add("x", 1.0);
