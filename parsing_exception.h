@@ -87,7 +87,7 @@ class ParsingException {
                     return "')' expected";
 
                 case EXPRESION_VACIA:
-                    return "Empty expression";
+                    return "empty expression";
 
 				case PARTE_NO_ESPERADA:
 					return "unexpected expression \"%s\"";
@@ -111,7 +111,7 @@ class ParsingException {
 					return "expression too long";
 
                 case DEFINICION_DE_VARIABLE_FALLIDA:
-                    return "Defining variable failed";
+                    return "defining variable failed";
 
 				case VALOR_ENTERO_ESPERADO_EN_FUNCION:
                     return "Integer value expected in function %s";
@@ -126,7 +126,7 @@ class ParsingException {
 					return "out of domain for function '%lf'";
 
 				case ERROR_LEYENDO_VAR_FILE:
-					return "Leyendo archivo de variables.";
+					return "reading variables file";
 
 				case DIVISION_POR_CERO:
                 	return "/ by zero";

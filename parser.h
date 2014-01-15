@@ -33,21 +33,11 @@ class Parser {
 			pExpr = NULL;
 			token[0] = '\0';
 			tipoTokenActual = NADA;
-			
+
 			std::srand((unsigned)time(NULL));
-			verbose = false;
 			show_error_flag = false;
 
-		} 
-
-		void set_verbose(bool verbose_flag) {
-			verbose = verbose_flag;
 		}
-
-		inline bool get_verbose(void) const {
-            return verbose;
-		}
-
 
 		void set_error(bool error_flag) {
 			show_error_flag = error_flag;
@@ -66,7 +56,7 @@ class Parser {
 		}
 
 		inline bool create_array(const char* name) {
-		    return user_arrays.create_array(name);
+		    return user_arrays.create(name);
 		}
 
 		inline void view_vars(void) const {
@@ -261,8 +251,6 @@ class Parser {
 		}
 
 	private:
-
-		bool verbose;
 
         bool show_error_flag;
 		std::vector<Lexema> lexemas_positions;
@@ -514,7 +502,7 @@ class Parser {
                     Es decir:
                     sin(x+1) podría ser escrito también así: sin (x + 1) ó sin[TAB]*(x + 1)
                     */
-                
+
                 // Variables temporales para avanzar y luego retroceder si no es una función
                 char* e2 = NULL;
                 e2 = pExpr;
@@ -610,7 +598,6 @@ class Parser {
             int op_id = get_operator_id(token);
 
 			while((op_id == AND) || (op_id == OR) /*|| (op_id == BITSHIFTLEFT) || (op_id == BITSHIFTRIGHT)*/) {
-				if(verbose) std::cout << "[and|or]" << std::endl;
 
 				get_token_2();
 
@@ -629,8 +616,6 @@ class Parser {
             while((op_id == EQUAL) || (op_id == UNEQUAL) || (op_id == SMALLER) ||
 				  (op_id == LARGER) || (op_id == SMALLEREQ) || (op_id == LARGEREQ)) {
 
-				if(verbose) std::cout << "[=|!=|<|>|<=|>=]" << std::endl;
-
                 get_token_2();
 
                 answer = eval_operator(op_id, answer, parse_level4());
@@ -646,7 +631,6 @@ class Parser {
             int op_id = get_operator_id(token);
 
 			while(op_id == PLUS || op_id == MINUS) {
-				if(verbose) std::cout << "[+|-]" << std::endl;
 
 				get_token_2();
 
@@ -672,7 +656,6 @@ class Parser {
             int op_id = get_operator_id(token);
 
 			while((op_id == MULTIPLY) || (op_id == DIVIDE) || (op_id == MODULUS) || (op_id == XOR)) {
-				if(verbose) std::cout << "[*|/|%]" << std::endl;
 
 				get_token_2();
 
@@ -688,8 +671,6 @@ class Parser {
             int op_id = get_operator_id(token);
 
 			while(op_id == POW) {
-				if(verbose) std::cout << "[^]" << std::endl;
-
                 get_token_2();
 
                 answer = eval_operator(op_id, answer, parse_level8());
@@ -720,7 +701,6 @@ class Parser {
 
 			if(op_id == MINUS) {
 
-				if(verbose) std::cout << "[minus]" << std::endl;
 				get_token_2();
 
 				answer = parse_not();
@@ -759,7 +739,6 @@ class Parser {
 
 			if(tipoTokenActual == FUNCION) {
 
-				if(verbose) std::cout << "[function]" << std::endl;
                 // Copiamos el nombre de la función:
                 strcpy(fn_name, token);
 
@@ -844,7 +823,7 @@ class Parser {
 						tipoTokenActual = token_type_now;
 						strcpy(token, token_now);
 					}
-                } 
+                }
 				answer = parse_level10();
 			}
 			// Comprobar si la variable es una palabra reservada y que
@@ -863,7 +842,6 @@ class Parser {
 
                 // Entonces se trata efectivamente de una expresión parentizada:
 				if(token[0] == '(' && token[1] == '\0') {
-					if(verbose) std::cout << "[()]" << std::endl;
                     // Avanzamos al siguiente token para llegar a la expresión:
 
                     get_token_2();
@@ -881,7 +859,7 @@ class Parser {
 
                     return answer;
                 }
-            } 
+            }
             return parse_number();
         }
 
@@ -890,7 +868,6 @@ class Parser {
             double answer = 0.0;
             switch(tipoTokenActual) {
 				case NUMERO:
-					if(verbose) std::cout << "[numero:" << token << "]" << std::endl;
                     answer = std::strtod(token, NULL);
 
                     get_token_2();
@@ -898,7 +875,6 @@ class Parser {
                     break;
 
 				case VARIABLE:
-					if(verbose) std::cout << "[var:" << token << "]" << std::endl;
                     answer = eval_variable(token);
 
                     get_token_2();

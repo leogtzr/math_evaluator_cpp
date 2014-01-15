@@ -138,7 +138,7 @@ class Arrays {
             return false;
         }
 
-        inline bool create_array(const char* name) {
+        inline bool create(const char* name) {
             if(exists(name)) {
                 return false;
             } else {
@@ -150,7 +150,7 @@ class Arrays {
             }
         }
 
-		inline bool add_element_to_array(const char* name, double value) {
+		inline bool add_element(const char* name, double value) {
 			// Si existe se agrega el valor al array y se regresa true
 			if(exists(name)) {
 				size_t index = get_index(name);
