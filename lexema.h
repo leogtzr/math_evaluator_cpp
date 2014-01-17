@@ -18,6 +18,10 @@ class Lexema {
 			lexema(lex), inicio(i), tipo(tipo) {
 			final_pos = lex.size();
 		}
+
+		~Lexema() {
+		}
+
 		inline std::string get_lexema(void) const {
 			return lexema;
 		}

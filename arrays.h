@@ -31,6 +31,9 @@ class Arrays {
 
     public:
 
+        ~Arrays() {
+        }
+
         std::vector<Array> &get_array_list(void) {
             return array_list;
         }

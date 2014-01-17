@@ -36,7 +36,9 @@ class Parser {
 
 			std::srand((unsigned)time(NULL));
 			show_error_flag = false;
+		}
 
+		~Parser() {
 		}
 
 		void set_error(bool error_flag) {

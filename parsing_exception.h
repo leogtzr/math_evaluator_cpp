@@ -48,6 +48,8 @@ class ParsingException {
             va_end(args);
         }
 
+        ~ParsingException() {}
+
         inline int get_col(void) const {
             return err_col;         // Returns the column of the error
         }

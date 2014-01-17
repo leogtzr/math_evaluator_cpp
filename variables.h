@@ -30,6 +30,8 @@ class VariablesTest {
 
 	public:
 
+        ~VariablesTest() {}
+
 		inline void sort(void) {
 			std::sort(var_list.begin(), var_list.end(), sort_key_var());
 		}

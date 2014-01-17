@@ -9,6 +9,8 @@ class VarFromFile {
 
 		VarFromFile(std::string variable_name) : var_name(variable_name) {}
 
+		~VarFromFile() {}
+
         inline std::string& get_var_name(void) {
             return var_name;
         }
