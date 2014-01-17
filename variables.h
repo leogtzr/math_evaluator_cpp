@@ -79,16 +79,15 @@ class VariablesTest {
 
 		inline char* get_expression(const char* name) const {
             int index = get_index(name);
-            return var_list[index].expression;      /** Ejemplo */
+            return var_list[index].expression;
         }
 
         // Obtener la descripción de la variable
         inline char* get_description(const char* name) const {
             int index = get_index(name);
-            return var_list[index].description;      /** Ejemplo */
+            return var_list[index].description;
         }
 
-        /// Setters:
 		/*
         	Cambiar el nombre de una variable (old_name) por (new_name).
 		*/
